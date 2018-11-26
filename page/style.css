@@ -1,0 +1,26 @@
+body {
+  background-color: #1c344f;
+}
+
+h1 {
+  margin-top: 10%;
+  color: white;
+}
+
+#searchinput {
+  margin-top: 0.5%;
+  border: none;
+  height: 30px;
+  width: 70%;
+}
+
+div.rowtitle {
+  text-align: center;
+}
+
+div.rowmenu {
+  margin-top: 5%;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
