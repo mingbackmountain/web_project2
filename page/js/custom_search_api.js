@@ -1,4 +1,8 @@
+// Thanakorn Pasangthien 6088109
+//   Dujnapa Tanundet 6088105
+//   Arada Puengmongkolchaikit 6088133
 const APIkey = "AIzaSyBwdnMGnnef_olJQKcXr396eSmkCLGtrJs";
+
 const cx = "000890759267133354411:-rqxnzcdshs";
 
 function mapData(data) {
@@ -23,9 +27,9 @@ function displaySearch(title, description, link) {
   </div>
   `;
 }
-$("#submit").on("click", function() {
-  let keyword = $("#searchinput").val();
-  const URL = ` https://www.googleapis.com/customsearch/v1?key=${APIkey}&cx=${cx}&q=${keyword}`;
+
+function request(value) {
+  const URL = ` https://www.googleapis.com/customsearch/v1?key=${APIkey}&cx=${cx}&q=${value}`;
   $.get(URL, function(data, status) {
     const listOfData = mapData(data.items);
     listOfData.map(function(value) {
@@ -34,4 +38,9 @@ $("#submit").on("click", function() {
       );
     });
   });
+}
+
+$("#submit").on("click", function() {
+  let keyword = $("#searchinput").val();
+  request(keyword);
 });
