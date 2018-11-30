@@ -3,7 +3,7 @@
     // Dujnapa Tanundet 6088105
     // Arada Puengmongkolchaikit 6088133
     
-    
+    session_start();
     //include library
     require "twitteroauth/autoload.php";
     use Abraham\TwitterOAuth\TwitterOAuth; 
@@ -21,6 +21,7 @@
                 <div class=\"col-11\">
                     <h4><b>{$value->user->name}</b></h4> 
                     <p style=\"margin-top:5px;\">{$value->text}</p> 
+                    <p style=\"margin-top:5px;\">{$value->created_at}</p> 
                 </div>
                      </div>
                 </div>
@@ -49,6 +50,7 @@
           }
           //Bring the result to the render method
           $result = search($query);
+          $_SESSION['tweets'] = $result;
           render($result);
     }
 ?>

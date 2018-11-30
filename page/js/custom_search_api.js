@@ -35,6 +35,7 @@ function displaySearch(title, description, link) {
 
 //request to Google Custom Search API
 function request(value) {
+  $(".loader").show();
   const URL = ` https://www.googleapis.com/customsearch/v1?key=${APIkey}&cx=${cx}&q=${value}`;
   $.get(URL, function(data, status) {
     const listOfData = mapData(data.items); //map the data that we want to use
@@ -43,6 +44,7 @@ function request(value) {
         displaySearch(value.title, value.description, value.link)
       );
     });
+    $(".loader").hide();
   });
 }
 
