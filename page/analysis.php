@@ -1,4 +1,5 @@
 <?php
+    error_reporting(0);
     //Include lib
     require "twitteroauth/autoload.php";
     use Abraham\TwitterOAuth\TwitterOAuth; 
@@ -18,7 +19,6 @@ function produceAnalysis($tweets){
      
         //use getSentiment method to evaluate the tweets
         $sentiment = $analyzer->getSentiment($value->text);
-
         if($sentiment['compound'] > 0){
             $sentimentcount["pos"]++;
         }else if($sentiment['compound'] < 0){
@@ -36,5 +36,6 @@ function produceAnalysis($tweets){
    if(isset($_SESSION['tweets'])){
         //return JSON to index.html
         echo produceAnalysis($_SESSION['tweets']);
+        // print_r(produceAnalysis($_SESSION['tweets']));
    } 
 ?>
