@@ -1,4 +1,7 @@
 <?php
+    // Thanakorn Pasangthien 6088109
+    // Dujnapa Tanundet 6088105
+    // Arada Puengmongkolchaikit 6088133
     error_reporting(0);
     //Include lib
     require "twitteroauth/autoload.php";
@@ -36,6 +39,5 @@ function produceAnalysis($tweets){
    if(isset($_SESSION['tweets'])){
         //return JSON to index.html
         echo produceAnalysis($_SESSION['tweets']);
-        // print_r(produceAnalysis($_SESSION['tweets']));
    } 
 ?>
